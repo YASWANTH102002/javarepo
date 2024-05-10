@@ -1,0 +1,19 @@
+Resources:
+  MyEC2Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a  # Mumbai zone "ap-south-1a"
+      ImageId: ami-051f8a213df8bc089  # Specify your desired AMI ID
+      InstanceType: t2.micro  # Specify your desired instance type
+      KeyName: new-key-pair  # Specify your key pair
+      SecurityGroupIds:
+        - sg-0f248f74444ed2f81  # Specify your security group ID
+      UserData:
+        Fn::Base64: |
+          #!/bin/bash
+          echo "Hello World!" > /var/www/html/index.html  # Example user data to create a sample index.html file
+          yum update -y  # Update packages
+          yum install -y httpd  # Install Apache web server
+          systemctl start httpd  # Start Apache service
+          systemctl enable httpd  # Enable Apache service to start on boot
+

@@ -1,0 +1,29 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "MyEC2Instance": {
+      "Type": "AWS::EC2::Instance",
+      "Properties": {
+        "ImageId": "ami-051f8a213df8bc089",
+        "InstanceType": "t2.micro",
+        "KeyName": "new-key-pair",
+        "SecurityGroups": ["default"],
+        "UserData": {
+          "Fn::Base64": {
+            "Fn::Join": [
+              "",
+              [
+                "#!/bin/bash\n",
+                "echo \"Hello, World!\" > /var/www/html/index.html\n",
+                "yum update -y\n",
+                "yum install -y httpd\n",
+                "systemctl start httpd\n",
+                "systemctl enable httpd\n"
+              ]
+            ]
+          }
+        }
+      }
+    }
+  }
+}
