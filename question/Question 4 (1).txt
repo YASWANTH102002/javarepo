@@ -1,0 +1,10 @@
+Question 4:
+
+click ec2-->name it-->select windows-->security group--rdp,custom tcp,https-->click launch instances
+
+click iam-->click user-->name it-->click tick box-->click I want to create an IAM user-->click custom password-->uncheck the user must-->click save-->click attach policy-->give s3 full access-->
+click next-->click create user-->download csv file-->got to the user-->click security creadentials-->click create access key-->use command line interface-->click tick box-->click next-->click done-->download the csv
+
+click s3-->click create bucket-->choose general-->choose acl enable-->bucket owner-->uncheck-->enable in bucket version-->create bucket-->upload files-->select the files-->click upload
+
+click ec2-->connect through rdp client-->download remote desktop-->click getpassword-->upload the key pair that we created for ec2-->decrpyt the password-->go remote desktop-->paste the password-->go to edge-->start without your data-->type tntdrive download-->download exe installer-->go to the downloaded file-->click open file-->click accept the agreement-->click all next-->click no i will restart the computer-->click finish-->go to the pc and install the downloaded file-->go to the desktop-->open the tnt drive-->click account-->click add new mapped drive-->click storage account-->click add-->give access  and secret key-->click add new account-->click save changes-->click add new mapped-->choose the bucket that we created-->click add-->click open-->

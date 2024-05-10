@@ -1,0 +1,8 @@
+Question 9
+
+MFA:
+====
+
+in right side under quick links click my security credentials-->click aasign mfa device-->name-->click authenticator app-->click show qr code-->scan the qr code using authenticator app-->put the two mfa code
+
+click create access key-->click create access key

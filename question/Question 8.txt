@@ -1,0 +1,41 @@
+Question 8
+
+create the instaces
+
+create the instances-->choose different zone
+
+click efs-->click create file system-->name it-->click create-->go to the efs-->click network-->click manage-->we have to remove all remaining subnet-->select security group that we created for ec2-->click save-->click attach-->copy the nfs client
+
+connect prompt through first instances 
+
+paste the ssh 
+
+#sudo su -
+
+#yum install nfs-utils
+
+#mkdir folder
+
+paste the nfs client
+
+#cd folder
+
+#touch file.txt{1..10}
+
+
+
+connect prompt through second instances 
+
+paste the ssh 
+
+#sudo su -
+
+#yum install nfs-utils
+
+#mkdir folder1
+
+paste the nfs client
+
+#cd folder1
+
+#ls

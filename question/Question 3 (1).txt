@@ -1,0 +1,35 @@
+Question 3:
+===========
+
+create the ec2 in mumbai region-->amazon-linux-->remaining all keep by the own-->security group ssh,http-->click advanced details
+
+advanced details
+
+	#!/bin/bash
+	yum install httpd -y
+	echo "This server is running in the Mumbai region" >> /var/www/html/index.html
+	systemctl start httpd
+	systemctl enable httpd
+	useradd admin - redhat -c "admin"
+
+click launch instances
+
+copy the ip address and paste in chrome with :80
+
+click the instances and stop the instances and after click the instances and click acton and click images and templates-->click create image-->name the image
+-->click add new tag and write anything in that-->click create image
+
+go to mumbai region-->click ami-->click action-->click copy ami-->click singapore region in destination region-->click copy ami
+
+go to singapore region--click ami-->click launch instances from ami-->all the thing are own-->copy the code and paste in advanced details-->
+
+	#!/bin/bash
+	yum install httpd -y
+	echo "This server is running in the Singapore region" >> /var/www/html/index.html
+	systemctl start httpd
+	systemctl enable httpd
+	useradd admin - redhat -c "admin"
+
+click launch instances
+
+copy the public of singpore and paste in chrome

@@ -1,0 +1,106 @@
+Question:2
+===========
+
+my one team
+
+
+click launch instances in mumbai region-->name-web-server-->choose t2.micro-->choose ap-south-1a in subnet-->add http,ssh in security group-->click launch instances
+
+click volumes-->choose gp2 in volume type-->choose 5 gb in size-->click create volume-->click attach volume-->choose the instances-->choose /dev/sdb-->click attach volume
+
+open command prompt
+
+#yum update -y
+
+#yum install httpd -y
+
+#systemctl enable httpd
+
+#systemctl start httpd
+
+#systemctl status httpd
+
+For volume:
+===========
+
+#lsblk
+
+#mkfs and press tab
+
+#mkfs.ext4 /dev/xvdb
+
+#blkid
+
+copy the UUID
+
+--------------------------------------------
+Temporary Mount:
+=================
+
+#mkdir /folder
+
+#mount /dev/xvdb /folder/
+
+#df -h
+
+#cd /folder/
+
+#touch training.txt{1..10}
+
+#ls
+
+#cd
+
+Permanent Mount:
+================
+
+#mkdir /folder
+
+#blkid
+
+copy the UUID
+
+#vim /etc/fstab
+
+	#data vol
+	UUID=..............   /folder  ext4  defaults  0 0
+
+#cd /folder/
+
+#touch training.txt{1..10}
+
+#ls
+
+#cd
+
+Reboot the instances
+
+
+click snapshot-->click create snapshot-->resource type-volume-->select the volume id-->click create snapshot
+
+ 
+Create the another ec2 in singapore region
+
+go to mumbai region
+
+select the snapshot-->click action-->click copy snapshot-->choose the same zone that we used for singapore instances-->click copy snapshot
+
+go to singapore server
+
+select the snapshot-->click create volume from snapshot-->choose gp2-->size 5-->click create volume-->click actions-->click attach volume
+
+connect singapore ec2 to prompt
+
+#lsblk
+
+#mkdir /tech-data
+
+#mount /dev/xvdb /tech-data/
+
+#df -h
+
+#cd /data/
+
+#ls
+
+#cd

@@ -1,0 +1,74 @@
+Question: 1
+============
+
+1.Deploy an ec2 instances using of t2.micro instance in mumbai region in zone ap-south-1a. Configure web server on it and make it live, and attach a 5GB ebs volume where create 10 files, like training.txt
+
+
+1).click launch instances in mumbai region-->name-web-server-->choose t2.micro-->choose ap-south-1a in subnet-->add http,ssh in security group-->click launch instances
+
+click volumes-->choose gp2 in volume type-->choose 5 gb in size-->click create volume-->click attach volume-->choose the instances-->choose /dev/sdb-->click attach volume
+
+open command prompt
+
+#yum update -y
+
+#yum install httpd -y
+
+#systemctl enable httpd
+
+#systemctl start httpd
+
+#systemctl status httpd
+
+For volume:
+===========
+
+#lsblk
+
+#mkfs and press tab
+
+#mkfs.ext4 /dev/xvdb
+
+#blkid
+
+copy the UUID
+
+--------------------------------------------
+Temporary Mount:
+=================
+
+#mkdir /folder
+
+#mount /dev/xvdb /folder/
+
+#df -h
+
+#cd /folder/
+
+#touch training.txt{1..10}
+
+#ls
+
+#cd
+
+Permanent Mount:
+================
+
+#mkdir /folder
+
+#blkid
+
+copy the UUID
+
+#vim /etc/fstab
+
+	#data vol
+	UUID=..............   /folder  ext4  defaults  0 0
+
+#cd /folder/
+
+#touch training.txt{1..10}
+
+#ls
+
+#cd

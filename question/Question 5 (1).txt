@@ -1,0 +1,46 @@
+Question 5:
+===========
+
+create a custom vpc
+
+click create vpc-->choose vpc only-->name the vpc-->choose ipv4 in ipv4 CIDR block-->click tick box in auto generate-->put 10.0.0.0/16 in IPV4-->type 
+name in tags-->click create
+
+click create subnet-->choose the vpc that we created-->name the subnet---web-subnet-->choose the zone-->10.0.0.0/16 in ipv4 vpc-->10.0.0.0/24 in ipv4 subnet
+cidr block-->click create
+
+click create subnet-->choose the vpc that we created-->name the subnet---db-subnet-->choose the different zone-->10.0.0.0/16 in ipv4 vpc-->10.0.1.0/24 in ipv4 subnet cidr block-->click create
+
+click ec2-->name the ec2---web-server-->create the new keypair-->choose the vpc that we created-->choose web-subnet in subnet in network settings-->click enable-->create security group--ssh,http-->click launch instance
+
+click internet gateway in ec2-->name it-->click create-->click actions-->click attach to vpc-->select the vpc that we created-->click save
+
+click route tables-->name it--web-rt-->choose the vpc that we created-->click create table-->click edit-->click add route-->choose 0.0.0.0/0-->choose internet
+gateway-->choose igw-->click save-->click subnet association-->click edit-->select web subnet-->click save associations
+
+open command prompt-->connect through ssh client
+
+#sudo su -
+
+#yum install httpd -y
+
+#cd /var/www/html/
+
+#echo "hi" > index.html
+
+#cat index.html
+
+#systemctl restart httpd
+
+#systemctl enable httpd
+
+#systemctl status httpd
+
+#cd
+
+copy the public ip of ec2 that we created and paste in chrome
+
+create the instances-->name--db-server-->same key-->vpc that we created-->choose the zone-->disable ip in third of network settings-->same security that we use for instances-->click launch instances-->edit the security inbound rules-choose all icmp IPV4,anywhere-------------------->we have to choose db-subnet
+in network settings for choosing vpc
+
+#ping private ip of db-server instance
